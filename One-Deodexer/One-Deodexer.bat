@@ -51,6 +51,7 @@ echo     MM     ,MP 8M"""""" 8M     M8 8MI    MM 8M""""""    XMX   8M""""""  MM
 echo     MM    ,dP' YM.    , YA.   ,A9 `Mb    MM YM.    ,  ,V' VA. YM.    ,  MM     
 echo   .JMMmmmdP'    `Mbmmd'  `Ybmd9'   `Wbmd"MML.`Mbmmd'.AM.   .MA.`Mbmmd'.JMML.   
 %cecho%                                                                   {06}by JamFlux{#}
+%cecho%                                                                   {06}heyuhui汉化{#}
 TIMEOUT /T 2 /nobreak > NUL & CLS
 if not exist system\build.prop (
 mode con:cols=40 lines=35
@@ -75,14 +76,15 @@ echo.
 %cecho%            {06}deodexer{#}
 echo.
 %cecho%                          {03}by JamFlux{#}
+%cecho%                          {03}heyuhui汉化{#}
 echo.
 echo.
 echo.
 echo.
 echo.
-echo   -Can't continue.
+echo   -无法继续。
 echo.
-%cecho%    No {06}build.prop{#} has been found.
+%cecho%    没有找到 {06}build.prop{#} 请保证system文件夹有build.prop.
 echo.
 echo.
 pause>nul
@@ -113,25 +115,26 @@ echo.
 %cecho%            {06}deodexer{#}
 echo.
 %cecho%                          {03}by JamFlux{#}
+%cecho%                          {03}heyuhui汉化{#}
 echo.
 echo ----------------------------------------
 %cecho%                 {06}Main Menu{#}
 echo.
 echo ----------------------------------------
-echo 1 : Create working directory
-echo 2 : Deodex all system files
-echo 3 : Add deodexed files to zip
-echo 4 : Change java heap size
+echo 1 : 创建工作目录
+echo 2 : Deodex system所有文件
+echo 3 : 将Deodex后的文件添加到zip
+echo 4 : 改变java堆大小
 echo ----------------------------------------
 %cecho%              system api: {06}!api!{#}
 echo.
 %cecho%              cpu: {06}!cpu!{#}
 echo.
-%cecho%              heap size: {06}!memory!{#}
+%cecho%              堆内存: {06}!memory!{#}
 echo.
 echo ========================================
 echo.
-set /p NUM="Choice : 
+set /p NUM="选择 : 
 if not defined NUM goto menu
 if "%NUM%"=="1" goto set_work
 if "%NUM%"=="2" goto deodex
@@ -167,11 +170,11 @@ echo.
 echo.
 echo.
 echo.
-echo   -Please set heap size for java:
+echo   -请为Java设置堆大小：
 echo    example: 128, 256, 512, 2048
 echo.
 echo.
-set /p memory=*  Set to: 
+set /p memory=*  设置: 
 goto menu
 
 
@@ -406,7 +409,7 @@ move /y !rom!\framework\!cpu!-dex\*.dex bin\temp\dex_files >nul
 if exist !rom!\framework\!cpu!-dex rmdir /q /s !rom!\framework\!cpu!-dex >nul
 if exist !rom!\framework\!cpu!\dex rmdir /q /s !rom!\framework\!cpu!\dex >nul
 ::copying jars, apks and odex files to app, framework, priv-app and vendor temporary folders
-echo   -Copying jars, apks and odex files
+echo   -复制jar、apk和odex文件
 For /R system\framework %%g IN (*.odex *.jar) do (
 if not exist bin\temp\fram_files mkdir bin\temp\fram_files >nul
 	copy /y "%%g" bin\temp\fram_files >nul 2>nul
@@ -840,10 +843,10 @@ echo.
 echo.
 echo.
 echo.
-echo   -Done.
+echo   -完成.
 set ENDTIME=%TIME%
 call :time
-echo   -Elapsed time: %DURATION%
+echo   -总共用时: %DURATION%
 pause>nul
 goto menu
 
